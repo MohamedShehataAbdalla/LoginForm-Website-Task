@@ -1,0 +1,130 @@
+$background-color-light : #FEFEFE;
+$color-light: #363636;
+
+$background-color-dark : #363636;
+$color-dark: #FEFEFE;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding:0;
+}
+
+.light{
+    background-color: $background-color-light;
+    color: $color-light;
+}
+
+.dark{
+    background-color: $background-color-dark;
+    color: $color-dark;
+}
+
+header {
+    width: 100%;
+    margin: 0;
+    padding:24px;
+}
+
+
+.main-btn {
+    padding: 10px 20px;
+    background-color: #B79465;
+    color: #FFF;
+    font-weight: 600;
+    margin-top: 20px;
+    border: none;
+    box-shadow: none;
+    &:hover {
+        background-color: #f1e08b;
+    }
+}
+
+
+.home-page {
+    min-height: 90vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.loginRegister-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: relative;
+    overflow: hidden;
+    min-height: 85vh;
+    &::before {
+        content: '';
+        background-color: #888;
+        background-size: cover;
+        background-image: url('../Images/login.jpg');
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        /* filter: blur(8px);
+        -webkit-filter: blur(8px); */
+    }
+    .section-container {
+        position: relative;
+        background-color: rgba(33, 37, 41, 65%);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 20%);
+        width: 500px;
+        margin: auto;
+        border-radius: 0;
+        .content {
+            width: 100%;
+            margin: auto;
+        }
+        h3 {
+            margin-bottom: 50px;
+        }
+        .login {
+            padding: 50px;
+            position: relative;
+            color: #FFF;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+            a {
+                color: #FFF;
+                &:hover {
+                    color:  #FEFEFE;
+                }
+            }
+            .input {
+                position: relative;
+                input {
+                    box-shadow: none;
+                    background-color: transparent;
+                    color: #FFF;
+                    border-color:  #FEFEFE;
+                    text-align: center;
+                    border-radius: 0;
+                    letter-spacing: 2px;
+                    font-size: 18px;
+                    &::placeholder {
+                        color:  #FEFEFE;
+                        text-align: center;
+                    }
+                    &:focus {
+                        color: #000;
+                        background-color:  #FEFEFE;
+                        &::placeholder {
+                            color: #363636;
+                        }
+                    }
+                    :not(:focus) {
+                        color:  #f1e08b;
+                    }
+                }
+            }
+        }
+    }
+}

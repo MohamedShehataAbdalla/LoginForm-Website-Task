@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from './Context/ThemeContext';
+import Header from './Layouts/Header/Header';
+import Login from './Login';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import './Assets/Styles/Main.css';
+import Home from './Home';
+import {AuthContext, AuthProvider} from './Context/AuthContext';
+import { useContext } from 'react';
 
 function App() {
+
+  const authContext = useContext(AuthContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+      <ThemeProvider>
+          <Header />
+          { authContext.auth.email ? <Home /> : <Login />}
+      </ThemeProvider>
     </div>
   );
 }
 
-export default App;
+function AppWithStore() {
+
+  return (<AuthProvider>
+    <App />
+  </AuthProvider>);
+}
+
+
+export default AppWithStore;
